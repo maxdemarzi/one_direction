@@ -9,7 +9,7 @@ import org.neo4j.graphdb.traversal.Evaluator;
 public class OneDirectionChangeEvaluator implements Evaluator {
     @Override
     public Evaluation evaluate(Path path) {
-        long startingNodeId = path.startNode().getId();
+        long nodeId = path.startNode().getId();
 
         if(path.length() < 3) {
             return Evaluation.INCLUDE_AND_PRUNE;
@@ -19,7 +19,7 @@ public class OneDirectionChangeEvaluator implements Evaluator {
         int changes = -1;
 
         for(Relationship rel :path.relationships()) {
-            if(rel.getStartNodeId() == startingNodeId) {
+            if(rel.getStartNodeId() == nodeId) {
                 if(direction != Direction.OUTGOING) {
                     changes++;
                 }
@@ -30,7 +30,7 @@ public class OneDirectionChangeEvaluator implements Evaluator {
                 }
                 direction = Direction.INCOMING;
             }
-            startingNodeId = rel.getStartNodeId();
+            nodeId = rel.getOtherNodeId(nodeId);
         }
         if (changes < 2) {
             return Evaluation.INCLUDE_AND_PRUNE;
