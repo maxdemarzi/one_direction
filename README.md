@@ -18,8 +18,7 @@ In the "neo4j.conf" file inside the Neo4j/conf folder add this line:
 
     dbms.security.procedures.unrestricted=com.maxdemarzi.*
 
-You will need to create a single property index on any property you intend to use in a Range Query.
-You should also create an index on any property you will use for a Contains query.
+The purpose of this procedure is to find paths between two nodes where we change direction no more than once. 
 
 Stored Procedures:
 
