@@ -22,13 +22,13 @@ public class OneDirectionChangeEvaluator implements Evaluator {
             if(rel.getStartNodeId() == nodeId) {
                 if(direction != Direction.OUTGOING) {
                     changes++;
+                    direction = Direction.OUTGOING;
                 }
-                direction = Direction.OUTGOING;
             } else {
                 if(direction != Direction.INCOMING) {
                     changes++;
+                    direction = Direction.INCOMING;
                 }
-                direction = Direction.INCOMING;
             }
             nodeId = rel.getOtherNodeId(nodeId);
         }
