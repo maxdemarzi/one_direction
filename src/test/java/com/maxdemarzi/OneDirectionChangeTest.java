@@ -51,7 +51,7 @@ public class OneDirectionChangeTest {
             "CREATE (u4:User { name: 'luke' } ) " +
             "CREATE (u5:User { name: 'mark' } ) " +
             "CREATE (u6:User { name: 'david' } ) " +
-            "CREATE (u7:User { name: 'yufei' } ) " +
+            "CREATE (u7:User { name: 'tom' } ) " +
             // 1 > 2 > 3 > 4 (Valid)
             "CREATE (u1)-[:KNOWS]->(u2) " +
             "CREATE (u2)-[:KNOWS]->(u3) " +

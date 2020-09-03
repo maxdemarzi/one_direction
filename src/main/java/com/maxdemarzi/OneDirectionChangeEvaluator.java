@@ -38,6 +38,5 @@ public class OneDirectionChangeEvaluator implements Evaluator {
             return Evaluation.EXCLUDE_AND_PRUNE;
         }
 
-
     }
 }

@@ -32,6 +32,7 @@ public class RelTypesExpander implements PathExpander {
         // Get the last node along the current path
         final Node node = path.endNode();
 
+
         // Traverse all the relationship types in either direction
         return Iterators.asList(new NestingIterator<>(relationshipTypes.iterator()) {
             @Override
